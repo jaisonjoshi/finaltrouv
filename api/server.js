@@ -52,7 +52,9 @@ mongoose.connect(process.env.MONGO_URI,{
         process.exit(1)
     })
 
-app.use(cors());
+app.use(cors({
+    origin : "https://trouvailler.com",
+}));
 
 app.use('/api/hotels',hotelRoutes)
 app.use('/api/rooms',roomRoutes)
