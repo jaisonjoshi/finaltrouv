@@ -1,19 +1,22 @@
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import useFetch from "../../../hooks/useFetch";
 
 const DestCard = () => {
+  const [destcard, setDestcard] = useState([])
   const { data, loading, error } = useFetch(
     "/packages?rating=3&rating=4&rating=5&limit=6"
   );
-
+  useEffect(()=>{
+    setDestcard(data);
+  }, [data])
   return (
     <>
         {loading ? (
           "Loading"
         ) : (
           <>
-            {data.map((item) => (
+            {destcard.map((item) => (
             <div className="overflow-hidden rounded-md shadow-gray-200 shadow-lg w-full relative">
               <div className="" key={item._id}>
                 <img

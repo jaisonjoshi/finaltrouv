@@ -5,8 +5,7 @@ import {
   BrowserRouter,
   Routes,
   Route,
-  Ridirect,
-  Switch,
+ 
 }from "react-router-dom";
 import Bidform from "./Pages/bidform/bidform.jsx";
 import Home from "./Pages/home/Home.jsx";

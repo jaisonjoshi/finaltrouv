@@ -1,12 +1,16 @@
 
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../../../../node_modules/slick-carousel/slick/slick.css";
 import "../../../../node_modules/slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import useFetch from "../../../hooks/useFetch";
 
 const Offers = () => {
+  const [offerscard, setOfferscard] = useState([]);
   const { data, loading, error } = useFetch("/packages?offers=true&limit=6");
+  useEffect(()=>{
+    setOfferscard(data)
+  }, [data])
   var settings = {
     dots: false,
     arrows: false,
